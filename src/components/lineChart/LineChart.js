@@ -29,7 +29,7 @@ function LineChart({ index }) {
   const [value, setValue] = useState([]);
   const data = useSelector((state) => state.api);
   const [temperatureSwitch, setTemperatureSwitch] = useStore();
-  const [currentTempText, setCurrentTempText] = useState('300');
+  const [currentTempText, setCurrentTempText] = useState('');
 
   // update linechart every time the temperature changes
   useLayoutEffect(() => {

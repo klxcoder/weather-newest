@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toDay, daysOfWeek } from '../../contansts/contansts';
 import { API_FETCH_REQUEST } from '../../contansts/contansts';
 
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -40,26 +40,26 @@ const Details = () => {
 
       <div className={styles.weatherByDay}>
         <ul>
-          <Slider {...settings}>
-            {data.weekWeather.map((weatherDay, index) => (
-              <li
-                className={colorCurrentWeather === index ? styles.active : ''}
-                key={index}
-                onClick={() => handleRenderWeatherByDay(index)}
-              >
-                <h3>{daysOfWeek[index]}</h3>
-                <div className={styles.photo}>
-                  <img
-                    src={`http://openweathermap.org/img/wn/${weatherDay?.weather[0].icon}@2x.png`}
-                  ></img>
-                </div>
-                <div className={styles.title}>Humidity</div>
-                <div className={styles.humidity}>
-                  {weatherDay?.main.humidity}%
-                </div>
-              </li>
-            ))}
-          </Slider>
+          {/* <Slider {...settings}> */}
+          {data.weekWeather.map((weatherDay, index) => (
+            <li
+              className={colorCurrentWeather === index ? styles.active : ''}
+              key={index}
+              onClick={() => handleRenderWeatherByDay(index)}
+            >
+              <h3>{daysOfWeek[index]}</h3>
+              <div className={styles.photo}>
+                <img
+                  src={`http://openweathermap.org/img/wn/${weatherDay?.weather[0].icon}@2x.png`}
+                ></img>
+              </div>
+              <div className={styles.title}>Humidity</div>
+              <div className={styles.humidity}>
+                {weatherDay?.main.humidity}%
+              </div>
+            </li>
+          ))}
+          {/* </Slider> */}
         </ul>
       </div>
     </div>

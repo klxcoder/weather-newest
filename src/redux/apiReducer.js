@@ -1,3 +1,5 @@
+import {convertCtoF} from '../services/utils';
+
 const initState = {
   weekWeather: [],
   detalsWeather: {},
@@ -13,7 +15,7 @@ const apiReducer = (state = initState, action) => {
         detalsWeather: {
           name: city.name,
           tempC: list[id].main.temp.toFixed(0),
-          tempF: ((Number(list[id].main.temp) * 9) / 5 + 32).toFixed(0),
+          tempF: convertCtoF(list[id].main.temp).toFixed(0),
           icon: list[id].weather[0].icon,
           humidity: list[id].main.humidity,
           windSpeed: list[id].wind.speed.toFixed(1),

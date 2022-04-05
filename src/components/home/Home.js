@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.scss';
 import clsx from 'clsx';
 import { BiSearchAlt } from 'react-icons/bi';
@@ -30,7 +30,7 @@ const Home = () => {
 
   // request api
   useEffect(() => {
-    dispatch(API_FETCH_REQUEST({ id: toDay, nameCity: 'ha noi' }));
+    dispatch(API_FETCH_REQUEST({ id: toDay, nameCity: 'Hanoi' }));
   }, []);
 
   // handle weather if it rains
@@ -44,7 +44,6 @@ const Home = () => {
       setRainNotification(false);
     }
   }, [data]);
-
   // submit city name and id-(day of the week)
   const handleCitySearch = () => {
     dispatch(API_FETCH_REQUEST({ id: weatherDay, nameCity: valueInput }));
@@ -72,7 +71,7 @@ const Home = () => {
             placeholder="Search for places ..."
           />
         </div>
-        <TemperatureSwitch />
+        <TemperatureSwitch data-testid="switch" />
         {/* Notification */}
         {data.messageError && (
           <div className={styles.notFoundCity}>
@@ -105,7 +104,6 @@ const Home = () => {
               src={`http://openweathermap.org/img/wn/${data.detalsWeather.icon}@2x.png`}
             ></img>
           </div>
-
           {/* handle °C <--> °F */}
           {temperatureSwitch ? (
             <div className={styles.temperatureF}>
