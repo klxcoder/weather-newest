@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { API_FETCH_REQUEST } from '../../contansts/contansts';
 import TemperatureSwitch from '../temperatureSwitch/TemperatureSwitch';
 import { useStore } from '../../store';
-import {
+
+const Home = ({
   hour,
   minute,
   year,
@@ -14,10 +15,8 @@ import {
   date,
   day,
   month,
-  toDay,
-} from '../../contansts/contansts';
-
-const Home = () => {
+  toDay
+}) => {
   const [valueInput, setValueInput] = useState();
   const [weatherDay, setWeatherDay] = useState(0);
   const [rainNotification, setRainNotification] = useState(false);
@@ -27,7 +26,6 @@ const Home = () => {
   // redux
   const dispatch = useDispatch();
   const data = useSelector((state) => state.api);
-
   // request api
   useEffect(() => {
     dispatch(API_FETCH_REQUEST({ id: toDay, nameCity: 'Hanoi' }));
