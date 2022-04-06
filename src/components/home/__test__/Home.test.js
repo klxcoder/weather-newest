@@ -26,7 +26,7 @@ const Wrapper = (
   </Provider>
 );
 
-describe('test Fetch', () => {
+describe('test Home', () => {
   test('render Home without crashing', async () => {
     const data = {
       cod: '200',

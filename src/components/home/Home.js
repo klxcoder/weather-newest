@@ -77,7 +77,7 @@ const Home = () => {
             onChange={(e) => handleSearchValue(e)}
             placeholder="Search for places ..."
             aria-label="cost-input"
-            // onKeyDown={(e) => handleEnterSearch(e)}
+          // onKeyDown={(e) => handleEnterSearch(e)}
           />
         </div>
 
